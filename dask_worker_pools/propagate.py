@@ -77,6 +77,22 @@ def set_pool(lyr_name: str, dsk: HighLevelGraph, pool: Pool) -> None:
 
 
 def _propagate_pool_recursive(lyr_name: str, dsk: HighLevelGraph) -> Pool | None:
+    """
+    Recursively traverse the HLG, mutating layers to use a pool based on their dependencies
+
+    Parameters
+    ----------
+    lyr_name:
+        The layer to start at
+    dsk:
+        HighLevelGraph to add pool annotations to.
+        Will be mutated: copies of layers will be inserted, with their
+        annotations changed.
+
+    Returns
+    -------
+    The name of the pool (or None) used for ``lyr_name``
+    """
     lyr = dsk.layers[lyr_name]
     if pool := get_layer_pool(lyr):
         # Base case: layer already has pool set, so respect it. Assume all its inputs are already fine.
