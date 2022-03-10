@@ -110,7 +110,7 @@ def _propagate_pool_recursive(lyr_name: str, dsk: HighLevelGraph) -> Pool | None
     return new_pool
 
 
-def propagate_pool_optimization(dsk: HighLevelGraph, keys=()) -> HighLevelGraph:
+def propagate_pool_optimization(dsk: HighLevelGraph, keys=(), **kwargs) -> HighLevelGraph:
     """
     Optimization function: propagate worker pool annotations to downstream layers.
     """
