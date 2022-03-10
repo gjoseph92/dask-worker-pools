@@ -1,5 +1,7 @@
 # dask-worker-pools
 
+[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/gjoseph92/dask-worker-pools/main.svg)](https://results.pre-commit.ci/latest/github/gjoseph92/dask-worker-pools/main)
+
 Assign tasks to pools of workers in dask. Schedule downstream tasks to also run in the appropriate pool, reducing data transfer.
 
 Meant for situations where communication costs between different pools of workers is very high.
