@@ -9,7 +9,7 @@ version = "0.1.0"
 
 [tool.poetry.dependencies]
 dask = "^2022.2.1"
-python = "^3.9"
+python = "^3.8"
 
 [tool.poetry.dev-dependencies]
 black = "^22.1.0"
