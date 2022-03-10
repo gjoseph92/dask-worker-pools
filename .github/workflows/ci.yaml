@@ -57,10 +57,10 @@ jobs:
           poetry install --no-interaction
           source .venv/bin/activate
       #----------------------------------------------
-      #               pre-commit
+      #              typecheck
       #----------------------------------------------
-      - name: Pre-commit
-        uses: pre-commit/action@v2.0.0
+      - name: Typecheck
+        run: pyright
       #----------------------------------------------
       #              run test suite
       #----------------------------------------------

@@ -33,3 +33,6 @@ repos:
         types: [python]
         # Replace the version below with the latest pyright version
         additional_dependencies: ["pyright@1.1.228"]
+ci:
+  skip:
+    - "pyright"
