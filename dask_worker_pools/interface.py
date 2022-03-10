@@ -12,7 +12,7 @@ T = TypeVar("T", bound=Any)
 
 def pool(name: str):
     "Contextmanager: annotate objects to run in the worker pool ``name``"
-    return dask.annotate(resources={POOL_PREFIX + name: 1})
+    return dask.annotate(resources={POOL_PREFIX + name: 0})
 
 
 def propagate_pools_in_collection(obj: T) -> T:

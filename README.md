@@ -60,16 +60,16 @@ You could annotate all this by hand, but that's tedious:
 import dask
 import dask.array as da
 
-with dask.annotate(resources={"pool-A": 1}):
+with dask.annotate(resources={"pool-A": 0}):
     a = da.random.random((10, 10))
 
-with dask.annotate(resources={"pool-B": 1}):
+with dask.annotate(resources={"pool-B": 0}):
     b = da.random.random(10)
 
-with dask.annotate(resources={"pool-A": 1}):
+with dask.annotate(resources={"pool-A": 0}):
     run_in_a = (a - 1).sum()
 
-with dask.annotate(resources={"pool-B": 1}):
+with dask.annotate(resources={"pool-B": 0}):
     run_in_b = b - a.mean()
 
 ```
