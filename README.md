@@ -80,6 +80,9 @@ So by just annotating the objects that _need_ to run in a certain pool, everythi
 
 ### Flaws
 
+* Doesn't identify when restricting an operation to one pool just isn't worth it.
+
+  For example, if `a` and `b` are equal-size arrays in different pools, `a + b` should have no restrictions—there's no gain from that. In fact, restricting it will probably make memory usage worse in the unlucky pool.
 * Doesn't back-propagate pool selections to unrestricted inputs.
 
   For example, in `a + any_pool`, it would be smart to restrict `any_pool` to A (assuming it's only used in this operation), so that it doesn't accidentally run somewhere else and then have to be transferred _into_ A.
