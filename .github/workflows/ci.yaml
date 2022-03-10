@@ -53,11 +53,16 @@ jobs:
       # install your root project, if required
       #----------------------------------------------
       - name: Install library
-        run: poetry install --no-interaction
+        run: |
+          poetry install --no-interaction
+          source .venv/bin/activate
+      #----------------------------------------------
+      #               pre-commit
+      #----------------------------------------------
+      - name: Pre-commit
+        uses: pre-commit/action@v2.0.0
       #----------------------------------------------
       #              run test suite
       #----------------------------------------------
       - name: Run tests
-        run: |
-          source .venv/bin/activate
-          pytest
+        run: pytest
