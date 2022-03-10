@@ -101,7 +101,7 @@ palette = [
 ]
 
 
-@functools.cache
+@functools.lru_cache(maxsize=None)
 def color_of(x):
     h = md5(str(x).encode())
     n = int(h.hexdigest()[:8], 16)
