@@ -20,7 +20,7 @@ def test_propagate_basic():
     opt = propagate_pool_optimization(d.dask)
     assert_pools(
         opt,
-        {lr(a): "a", lr(a2): "a", lr(b): None, lr(c): "a", lr(d): "a"},
+        {lr(a): "a", lr(a2): "a", lr(b): None, lr(c): None, lr(d): None},
     )
 
 
