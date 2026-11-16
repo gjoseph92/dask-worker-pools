@@ -40,7 +40,7 @@ def propagate_pools():
     return dask.config.set(
         {
             "optimizations": (propagate_pool_optimization,),
-            "optimization.fuse.active": False
+            "optimization.fuse.active": False,
             # ^ Work around https://github.com/dask/dask/issues/7036
         }
     )
